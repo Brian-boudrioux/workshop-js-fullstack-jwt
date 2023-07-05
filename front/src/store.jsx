@@ -21,7 +21,7 @@ const AuthProvider = ({children}) => {
                 console.error(error);
             }
         })();
-    })
+    }, [])
 
     return (
         <store.Provider value={{auth, setAuth}} >
