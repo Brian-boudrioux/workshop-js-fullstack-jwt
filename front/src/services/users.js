@@ -8,4 +8,4 @@ const getCurrentUser = () => {
     return api.get("/users/me");
 }
 
-export {getAllUsers, getCurrentUser};
+export default {getAllUsers, getCurrentUser};
