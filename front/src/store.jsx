@@ -1,5 +1,5 @@
 import React, { createContext, useState, useContext, useEffect } from "react";
-import { getCurrentUser } from "./services/users";
+import userService from "./services/users";
 
 const store = createContext();
 const useStore = () => useContext(store);
@@ -13,15 +13,17 @@ const AuthProvider = ({children}) => {
 
     // when reloading the application we will call the api for checking if the user was already logged
     useEffect(() => {
-        (async () => {
-            try {
-                const result = await getCurrentUser();
-                setAuth({user: result.data, isLogged: true});
-            } catch (error) {
-                console.error(error);
-            }
-        })();
-    }, []);
+        setConnection();
+    }, [])
+
+    const setConnection = async () => {
+        try {
+            const result = await userService.getCurrentUser();
+            setAuth({user: result.data, isLogged: true});
+        } catch (error) {
+            console.error(error);
+        }
+    }
 
     return (
         <store.Provider value={{auth, setAuth}} >
