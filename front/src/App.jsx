@@ -31,7 +31,7 @@ const PrivateRoute = ({children, role = "ROLE_USER"}) => {
     if (auth.user?.role == role || roles.indexOf(auth.user?.role) >= roles.indexOf(role))
       return children;
     else
-      return <Navigate to="/login" />
+      return <Navigate to="/" />
   }
   else
     return <Navigate to="/login" />

@@ -3,7 +3,6 @@ const argon = require("argon2");
 const jwt = require("jsonwebtoken");
 
 const findAll = async (req, res, next) => {
-    console.log(req.idUser, req.roleUser);
     try {
         const users = await getAll();
         res.status(200).json(users);
