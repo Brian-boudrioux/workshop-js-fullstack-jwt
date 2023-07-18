@@ -2,7 +2,7 @@
 const express = require("express");
 const cors = require('cors');
 const helmet = require('helmet');
-const errorHandler = require("../middlewares/errorHandler");
+const {errorHandler} = require("../middlewares/error");
 const cookieParser = require("cookie-parser");
 const path = require("path");
 
